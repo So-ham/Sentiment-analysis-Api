@@ -6,9 +6,10 @@ from pyramid.view import (
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import load_model
 import re
+import pickle
+
 model=load_model('C:/Users/dasso/Desktop/routing/models/model.h5')
 
-import pickle
 with open('C:/Users/dasso/Desktop/routing/models/tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
@@ -30,11 +31,8 @@ class TutorialViews:
 
     @view_config(route_name='home')
     def home(self):
-        # first = self.request.matchdict['first']
-        first = self.request.GET['sentence']
-        #last = self.request.matchdict['last']
+        sentence = self.request.GET['sentence']
         return {
             'Text': first,
-            'Sentiment': Predict(first),
-            #'last': last
+            'Sentiment': Predict(sentence)
         }
