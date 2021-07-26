@@ -13,12 +13,7 @@ from keras.callbacks import ModelCheckpoint
 import pickle
 from sklearn.metrics import confusion_matrix,classification_report
 import os
-
-# Constants
-max_words = 2000
-embed_dim = 128
-lstm_out = 196
-batch_size=32
+from constants import *
 
 
 # Reads the airline_sentiment_analysis.csv dataset and selects only the relevant columns
