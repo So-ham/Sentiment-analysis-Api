@@ -1,3 +1,4 @@
+# Imports 
 import numpy as np
 import pandas as pd 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -13,7 +14,7 @@ import pickle
 from sklearn.metrics import confusion_matrix,classification_report
 import os
 
-
+# Constants
 max_words = 2000
 embed_dim = 128
 lstm_out = 196
@@ -93,6 +94,7 @@ class architecture:
 	def __init__(self):
 		pass
 	
+	# Using a 1 layer LSTM here
 	def lstm_model(self):
 		model = Sequential()
 		model.add(Embedding(max_words, embed_dim,input_length = 31))
