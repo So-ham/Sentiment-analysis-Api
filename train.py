@@ -6,20 +6,16 @@ os.makedirs('models')
 # Reading the data
 data=ReadData().read_airline()
 
-
 # Encoding the Categorical Sentiments
 Y=Encoding_sentiment(data).encoding()
-
 
 # Preprocessing the airline reviews
 Preprocess_object=Train_Process()
 
 X=Preprocess_object.dataset_train_preprocess(data)
 
-
 # Instantiate the LSTM Model
 model=architecture().lstm_model()
-
 
 # Training and Validation Splitting
 X_train, x_test_valid, Y_train, y_test_valid= Train_Data_Split(X,Y).train_split()
